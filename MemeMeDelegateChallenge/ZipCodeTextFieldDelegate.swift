@@ -13,6 +13,14 @@ class ZipCodeTextFieldDelegate: NSObject, UITextFieldDelegate {
     
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         
+        if textField.text?.characters.count >= 5 {
+            return false
+        }
+        
+        if !"0123456789".containsString(string) {
+            return false
+        }
+        
         return true
     }
 }

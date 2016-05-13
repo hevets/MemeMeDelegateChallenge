@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var textField1: UITextField!
     @IBOutlet weak var textField2: UITextField!
     @IBOutlet weak var textField3: UITextField!
+    @IBOutlet weak var textField3Switch: UISwitch!
     
     // delegates
     let zipDelegate = ZipCodeTextFieldDelegate()
@@ -22,7 +23,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        textField1.delegate = zipDelegate
+        textField2.delegate = cashDelegate
+        textField3.delegate = lockableDelegate
     }
 
     override func didReceiveMemoryWarning() {
