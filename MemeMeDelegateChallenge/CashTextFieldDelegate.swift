@@ -11,12 +11,6 @@ import UIKit
 
 class CashTextFieldDelegate: NSObject, UITextFieldDelegate {
     
-    func textFieldDidBeginEditing(textField: UITextField) {
-        if textField.text == "" {
-            textField.text = "$0.00"
-        }
-    }
-    
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         
         // Determine what the new text will be
@@ -30,6 +24,7 @@ class CashTextFieldDelegate: NSObject, UITextFieldDelegate {
         
         return true
     }
+    
     func formatCurrency(string: NSString) -> String? {
         
         // Remove the $ , . from the string

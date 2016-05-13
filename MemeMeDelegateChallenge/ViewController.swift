@@ -14,26 +14,29 @@ class ViewController: UIViewController {
     @IBOutlet weak var textField1: UITextField!
     @IBOutlet weak var textField2: UITextField!
     @IBOutlet weak var textField3: UITextField!
-    @IBOutlet weak var textField3Switch: UISwitch!
+    @IBOutlet weak var lockSwitch: UISwitch!
     
     // delegates
     let zipDelegate = ZipCodeTextFieldDelegate()
     let cashDelegate = CashTextFieldDelegate()
-    let lockableDelegate = LockableTextFieldDelegate()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         textField1.delegate = zipDelegate
         textField2.delegate = cashDelegate
-        textField3.delegate = lockableDelegate
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
 
+    @IBAction func lockSwitched(sender: AnyObject) {
+        textField3.enabled = !sender.on
+    }
 
 }
 
